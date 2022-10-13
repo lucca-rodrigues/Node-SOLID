@@ -1,7 +1,7 @@
 import { IUsersRepository } from "../IUsersRepository";
 import { uuid } from "uuidv4";
 import { CreateUserDto } from "../../dto/userDto";
-
+import { encrypt } from "../../@shared/utils";
 export class DatabaseRepositories implements IUsersRepository {
   public usersOnDatabase = [];
 
@@ -17,7 +17,9 @@ export class DatabaseRepositories implements IUsersRepository {
     const userData = {
       id: uuid(),
       ...user,
+      password: encrypt(user.password, 10),
     };
+
     await this.usersOnDatabase.push(userData);
 
     return userData;

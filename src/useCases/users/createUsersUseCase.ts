@@ -7,9 +7,6 @@ export class CreateUsersUseCase {
 
   execute(data: CreateUserDto) {
     try {
-      // if (!data) {
-      //   throw new Error(`You need insert user info to create new user sucessfully`);
-      // }
       const user = this.usersRepository.save(data);
       return user;
     } catch (error) {
