@@ -2,9 +2,10 @@ import { StatusCodes } from "http-status-codes";
 
 import app from "../../../app";
 import supertest from "supertest";
+
+const request = supertest(app);
 describe("should be running usersController", () => {
   it("check if return users lits", async () => {
-    const request = supertest(app);
     const response = await request.get("/users");
 
     console.log(response.body);
