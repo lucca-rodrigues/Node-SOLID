@@ -16,7 +16,7 @@ export class UsersController {
   // }
 
   async findAll(_request: Request, response: Response) {
-    response.send("Batata");
+    response.send({ data: "Batata" });
   }
   async create(_request: Request, response: Response) {
     response.send("Batata");

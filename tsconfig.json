@@ -14,8 +14,7 @@
     "module": "commonjs",
     "allowJs": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "baseUrl": "./src"
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/*.spec.ts"]
