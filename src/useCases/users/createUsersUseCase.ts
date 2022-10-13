@@ -1,10 +1,11 @@
+import { CreateUserDto } from "../../dto/userDto";
 import { DatabaseRepositories } from "../../repositories/implementations/databaseRepositories";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 export class CreateUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
-  execute(data) {
+  execute(data: CreateUserDto) {
     try {
       // if (!data) {
       //   throw new Error(`You need insert user info to create new user sucessfully`);

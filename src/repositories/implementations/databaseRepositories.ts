@@ -1,15 +1,25 @@
 import { IUsersRepository } from "../IUsersRepository";
+import { uuid } from "uuidv4";
+import { CreateUserDto } from "../../dto/userDto";
 
 export class DatabaseRepositories implements IUsersRepository {
   public usersOnDatabase = [];
 
   async findAll(): Promise<any> {
+    this.usersOnDatabase.forEach((element) => {
+      delete element.password;
+    });
+
     return await this.usersOnDatabase;
   }
 
-  async save(user): Promise<any> {
-    await this.usersOnDatabase.push(user);
+  async save(user: CreateUserDto): Promise<any> {
+    const userData = {
+      id: uuid(),
+      ...user,
+    };
+    await this.usersOnDatabase.push(userData);
 
-    return user;
+    return userData;
   }
 }
