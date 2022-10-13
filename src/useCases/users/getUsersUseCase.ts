@@ -2,27 +2,18 @@ import { DatabaseRepositories } from "../../repositories/implementations/databas
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 export class GetUsersUseCase {
-  // constructor(private usersRepository: IUsersRepository) {}
-  // constructor(private usersRepository: DatabaseRepositories) {}
+  constructor(private usersRepository: IUsersRepository) {}
 
   execute() {
-    return {
-      id: "1234a538f45f83r",
-      name: "Lucas",
-    };
-  }
-  //   try {
-  //     // const usersList = this.usersRepository.findAll();
+    try {
+      const usersList = this.usersRepository.findAll();
 
-  //     // if (!usersList) {
-  //     //   throw new Error(`Users not found`);
-  //     // }
-  //     return {
-  //       id: "1234a538f45f83r",
-  //       name: "Lucas",
-  //     };
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+      if (!usersList) {
+        throw new Error(`Users not found`);
+      }
+      return usersList;
+    } catch (error) {
+      console.log("Erro ao executar o useCase", error.message);
+    }
+  }
 }

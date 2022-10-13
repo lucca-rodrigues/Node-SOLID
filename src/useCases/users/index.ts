@@ -2,8 +2,8 @@ import { DatabaseRepositories } from "../../repositories/implementations/databas
 import { GetUsersUseCase } from "./getUsersUseCase";
 import { UsersController } from "./usersController";
 
-// const databaseRepositories = new DatabaseRepositories();
-const getUsersUseCase = new GetUsersUseCase();
+const databaseRepositories = new DatabaseRepositories();
+const getUsersUseCase = new GetUsersUseCase(databaseRepositories);
 const usersController = new UsersController(getUsersUseCase);
 
 export { usersController };

@@ -2,16 +2,14 @@ import { Request, Response } from "express";
 import { GetUsersUseCase } from "./getUsersUseCase";
 
 export class UsersController {
-  constructor(private getUsersUseCase: GetUsersUseCase) {}
+  constructor(private readonly getUsersUseCase: GetUsersUseCase) {}
 
-  async handle() {
-    const data = {
-      id: "1234a538f45f83r",
-      name: "Lucas",
-    };
-
-    return data;
-    // response.send(this.getUsersUseCase.execute);
-    // response.send(data);
+  async getAll(request: Request, response: Response): Promise<Response> {
+    try {
+      const data = await this.getUsersUseCase.execute();
+      return response.status(200).send(data);
+    } catch (error) {
+      console.log("Erro ao execuar o controller", error.message);
+    }
   }
 }
