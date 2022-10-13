@@ -6,4 +6,4 @@ app.use(express.json());
 app.use(userRoutes);
 app.use(router);
 
-export { app };
+export default app;
