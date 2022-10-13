@@ -1,6 +1,7 @@
 import { IUsersRepository } from "../IUsersRepository";
 import { uuid } from "uuidv4";
 import { CreateUserDto } from "../../dto/userDto";
+import { encrypt } from "../../@shared/utils";
 
 export class DatabaseRepositoriesInMemmory implements IUsersRepository {
   public usersOnDatabase = [];
@@ -17,7 +18,9 @@ export class DatabaseRepositoriesInMemmory implements IUsersRepository {
     const userData = {
       id: uuid(),
       ...user,
+      password: encrypt(user.password, 10),
     };
+
     await this.usersOnDatabase.push(userData);
 
     return userData;
