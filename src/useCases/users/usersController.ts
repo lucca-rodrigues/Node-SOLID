@@ -1,10 +1,17 @@
 import { Request, Response } from "express";
 import { GetUsersUseCase } from "./getUsersUseCase";
 
-export class GetUsersController {
+export class UsersController {
   constructor(private getUsersUseCase: GetUsersUseCase) {}
 
-  async handle(request: Request, response: Response) {
-    return this.getUsersUseCase.execute();
+  async handle() {
+    const data = {
+      id: "1234a538f45f83r",
+      name: "Lucas",
+    };
+
+    return data;
+    // response.send(this.getUsersUseCase.execute);
+    // response.send(data);
   }
 }
