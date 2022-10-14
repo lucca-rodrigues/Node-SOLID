@@ -6,7 +6,7 @@ import { IGetUsersUseCase } from "../useCases/getUsers/IGetUsersUseCase";
 export class UsersController {
   constructor(private readonly usersService: IUsersService) {}
 
-  async findAll(request: Request, response: Response) {
+  async findAll(_request: Request, response: Response) {
     const data = await this.usersService.findAll();
     response.send(data);
   }
