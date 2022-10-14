@@ -1,9 +1,7 @@
-import { encrypt } from "@shared/utils";
-import { CreateUserDto } from "users/application/dto/userDto";
 import { uuid } from "uuidv4";
-import { IUsersRepository } from "../IUsersRepository";
+import { encrypt } from "../../../@shared/utils";
 
-export class DatabaseRepositories implements IUsersRepository {
+export class UsersRepository {
   public usersOnDatabase = [];
 
   async findAll(): Promise<any> {
@@ -14,14 +12,14 @@ export class DatabaseRepositories implements IUsersRepository {
     return await this.usersOnDatabase;
   }
 
-  async save(user: CreateUserDto): Promise<any> {
+  async save(user: any) {
     const userData = {
       id: uuid(),
       ...user,
       password: encrypt(user.password, 10),
     };
 
-    await this.usersOnDatabase.push(userData);
+    this.usersOnDatabase.push(userData);
 
     return userData;
   }

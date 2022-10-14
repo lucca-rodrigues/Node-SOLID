@@ -1,24 +1,18 @@
 import { Request, Response } from "express";
+import { IUsersService } from "../../domain/services/IUsersService";
+
+import { IGetUsersUseCase } from "../useCases/getUsers/IGetUsersUseCase";
 
 export class UsersController {
-  // constructor(private readonly getUsersUseCase: GetUsersUseCase, private readonly createUserUseCase: CreateUsersUseCase) {}
-  // async getAll(_request: Request, response: Response): Promise<Response> {
-  //   try {
-  //     const data = await this.getUsersUseCase.execute();
-  //     return response.status(200).send(data);
-  //   } catch (error) {
-  //     console.log("Erro ao execuar o controller", error.message);
-  //   }
-  // }
-  // async createUser(request: Request, response: Response) {
-  //   const data = request.body;
-  //   response.send(await this.createUserUseCase.execute(data));
-  // }
+  constructor(private readonly usersService: IUsersService) {}
 
-  async findAll(_request: Request, response: Response) {
-    response.send({ data: "Batata" });
+  async findAll(request: Request, response: Response) {
+    const data = await this.usersService.findAll();
+    response.send(data);
   }
-  async create(_request: Request, response: Response) {
-    response.send("Batata");
+  async createUser(request: Request, response: Response) {
+    const requestData = request.body;
+    const data = await this.usersService.createUser(requestData);
+    response.send(data);
   }
 }
