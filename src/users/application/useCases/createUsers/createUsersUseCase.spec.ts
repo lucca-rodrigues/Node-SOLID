@@ -1,9 +1,8 @@
 import { CreateUsersUseCase } from ".";
-import { UsersInMemmoryRepository } from "../../../../tests/repository/usersInMemmoryRepository";
+import { createUsersInMemmoryUseCase } from "../../../../tests/services/usersInMemmoryService";
 
 describe("should be testing the createUsersUseCase", () => {
-  const usersInMemmoryRepository = new UsersInMemmoryRepository();
-  const createUsersUseCase = new CreateUsersUseCase(usersInMemmoryRepository);
+  const createUsersUseCase = createUsersInMemmoryUseCase;
   it("check if createUsersUseCase be defined", async () => {
     expect(CreateUsersUseCase).toBeDefined();
   });
