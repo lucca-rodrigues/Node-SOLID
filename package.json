@@ -8,8 +8,7 @@
     "test": "jest --no-cache",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
-    "prepare": "husky install",
-    "commit": "git-cz"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
