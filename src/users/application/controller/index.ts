@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { IUsersService } from "../../domain/services/IUsersService";
 
-import { IGetUsersUseCase } from "../useCases/getUsers/IGetUsersUseCase";
-
 export class UsersController {
   constructor(private readonly usersService: IUsersService) {}
 
