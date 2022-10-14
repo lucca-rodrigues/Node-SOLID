@@ -5,7 +5,7 @@ import { IUsersRepository } from "../../infra/db/usersRepository/IUsersRepositor
 export class UsersInMemmoryRepository implements IUsersRepository {
   public databaseInMemmory = [
     {
-      id: uuid(),
+      id: "7e1a70ae-faca-4a4a-b78e-9473f3b7933e",
       name: "user in memmory",
       email: "userinmemory@gmail.com",
       password: "passwordinmemmory",

@@ -1,4 +1,3 @@
-import { UsersService } from ".";
 import { usersService } from "../../index";
 
 describe("should be testing the usersService", () => {
