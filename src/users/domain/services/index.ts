@@ -1,5 +1,4 @@
 import { ICreateUsersUseCase } from "../../application/useCases/createUsers/ICreateUsersUseCase";
-import { GetUsersUseCase } from "../../application/useCases/getUsers";
 import { IGetUsersUseCase } from "../../application/useCases/getUsers/IGetUsersUseCase";
 import { IUsersService } from "./IUsersService";
 
