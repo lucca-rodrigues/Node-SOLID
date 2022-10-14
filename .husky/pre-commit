@@ -4,3 +4,4 @@
 # npm test
 
 # npm run commit
+exec < /dev/tty && git cz --hook || true
