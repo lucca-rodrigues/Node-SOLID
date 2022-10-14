@@ -11,4 +11,4 @@ const createUsersUseCase = new CreateUsersUseCase(usersRepository);
 const usersService = new UsersService(getUsersUseCase, createUsersUseCase);
 const usersModule = new UsersController(usersService);
 
-export { usersModule };
+export { usersModule, usersService };
