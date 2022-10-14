@@ -1,4 +1,0 @@
-References:
-- https://www.youtube.com/watch?v=vAV4Vy4jfkc&ab_channel=Rocketseat
-- https://github.dev/rocketseat-content/youtube-api-node-solid
-- https://github.com/vedovelli/curso-javascript-testes-modulo-4
