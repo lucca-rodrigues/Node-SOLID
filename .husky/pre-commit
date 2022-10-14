@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# npm test
+npm test
 
-# npm run commit
-exec < /dev/tty && git cz --hook || true

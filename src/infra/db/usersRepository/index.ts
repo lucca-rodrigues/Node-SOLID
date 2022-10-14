@@ -1,19 +1,20 @@
 import { uuid } from "uuidv4";
 import { encrypt } from "../../../@shared/utils";
+import { IUsersRepository } from "./IUsersRepository";
 
-export class UsersRepository {
-  public usersOnDatabase = [];
+export class UsersRepository implements IUsersRepository {
+  public usersOnDatabase: string[] = [];
 
   async findAll(): Promise<any> {
-    this.usersOnDatabase.forEach((element) => {
+    this.usersOnDatabase.forEach((element: any) => {
       delete element.password;
     });
 
-    return await this.usersOnDatabase;
+    return this.usersOnDatabase;
   }
 
   async save(user: any) {
-    const userData = {
+    const userData: any = {
       id: uuid(),
       ...user,
       password: encrypt(user.password, 10),

@@ -9,7 +9,7 @@ export class UsersController {
     response.send(data);
   }
   async createUser(request: Request, response: Response) {
-    const requestData = request.body;
+    const requestData = request?.body;
     const data = await this.usersService.createUser(requestData);
     response.send(data);
   }

@@ -3,16 +3,12 @@ import { StatusCodes } from "http-status-codes";
 import app from "../../../app";
 import supertest from "supertest";
 
-const request = supertest(app);
 describe("should be running usersController", () => {
+  const request = supertest(app);
   it("check if return users lits", async () => {
-    const response = await request.get("/users");
-
-    console.log(response.body);
-
-    const responseBody = { data: "Batata" };
+    const response = await request.get("/api/v1/users");
 
     expect(response.statusCode).toBe(StatusCodes.OK);
-    expect(response.body).toEqual(responseBody);
+    expect(response.body).toEqual([]);
   });
 });
