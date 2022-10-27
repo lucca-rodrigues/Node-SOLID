@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { usersModule } from ".";
+import { usersController } from ".";
 
 const userRoutes = Router();
 
-userRoutes.get("/api/v1/users", (request, response) => usersModule.findAll(request, response));
-userRoutes.post("/api/v1/users", (request, response) => usersModule.createUser(request, response));
+userRoutes.get("/api/v1/users", (request, response) => usersController.findAll(request, response));
+userRoutes.post("/api/v1/users", (request, response) => usersController.createUser(request, response));
 
 export { userRoutes };
