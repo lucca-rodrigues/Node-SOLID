@@ -1,4 +1,5 @@
 import { CreateUsersUseCase } from ".";
+import { newUser } from "../../../../tests/mocks/newUser";
 import { createUsersInMemmoryUseCase } from "../../../../tests/services/usersInMemmoryService";
 
 describe("should be testing the createUsersUseCase", () => {
@@ -7,16 +8,11 @@ describe("should be testing the createUsersUseCase", () => {
     expect(CreateUsersUseCase).toBeDefined();
   });
   it("check if createUsersUseCase return all users", async () => {
-    const user = {
-      name: "John",
-      email: "john@email.com",
-      password: "johnPassword123",
-    };
-    const response = await createUsersUseCase.execute(user);
+    const response = await createUsersUseCase.execute(newUser);
 
     expect(response["id"]).toHaveLength(36);
-    expect(response["name"]).toBe(user["name"]);
-    expect(response["email"]).toBe(user["email"]);
+    expect(response["name"]).toBe(newUser["name"]);
+    expect(response["email"]).toBe(newUser["email"]);
     expect(response["password"]).toBeTruthy();
   });
 });
