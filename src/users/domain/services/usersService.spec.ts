@@ -20,9 +20,5 @@ describe("should be testing the usersService", () => {
     console.log(response);
     expect(response).toEqual(generatedUser);
     expect(response).toHaveLength(1);
-    expect(response[0]).toEqual(generatedUser[0]);
-    expect(response[0]["id"]).toEqual(generatedUser[0]["id"]);
-    expect(response[0]["name"]).toEqual(generatedUser[0]["name"]);
-    expect(response[0]["email"]).toEqual(generatedUser[0]["email"]);
   });
 });
